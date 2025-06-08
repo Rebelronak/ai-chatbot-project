@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priye.AI - Intelligent Assistant by Ronak Kanani</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23333'/><text x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' text-anchor='middle' fill='%23fff'>P</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-bg: #0a0a0a; --secondary-bg: #141414; --surface-bg: #1e1e1e;
+            --surface-hover: #2a2a2a; --border-color: #333333; --text-primary: #ffffff;
+            --text-secondary: #b3b3b3; --text-muted: #666666; --accent-primary: #4a4a4a;
+            --gradient-primary: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; background: var(--primary-bg);
+            color: var(--text-primary); height: 100vh; overflow: hidden;
+        }
+
+        /* Login */
+        .login-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
+        }
+
+        .login-box {
+            background: var(--surface-bg); border: 1px solid var(--border-color);
+            border-radius: 24px; padding: 48px; max-width: 440px; width: 90%;
+            box-shadow: var(--shadow-lg); animation: slideInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        .login-logo {
+            width: 80px; height: 80px; background: var(--gradient-primary);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; margin: 0 auto 24px; font-weight: 900; color: white;
+        }
+
+        .login-title {
+            font-size: 36px; font-weight: 900; margin-bottom: 12px; text-align: center;
+            background: linear-gradient(135deg, var(--text-primary), #777777);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .login-subtitle { color: var(--text-secondary); font-size: 16px; text-align: center; margin-bottom: 36px; }
+        .login-form { display: flex; flex-direction: column; gap: 24px; }
+
+        .form-input {
+            width: 100%; padding: 20px 26px; background: var(--secondary-bg);
+            border: 2px solid var(--border-color); border-radius: 16px;
+            color: var(--text-primary); font-size: 16px; transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none; border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px rgba(74, 74, 74, 0.15);
+        }
+
+        .login-btn {
+            background: var(--gradient-primary); color: white; border: none;
+            padding: 20px 28px; border-radius: 16px; font-size: 17px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+
+        .login-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+        .login-footer {
+            text-align: center; margin-top: 36px; padding-top: 28px;
+            border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 14px;
+        }
+
+        /* Mode Selection */
+        .mode-selection {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); display: none;
+            justify-content: center; align-items: center; z-index: 1001;
+        }
+
+        .mode-card {
+            background: var(--surface-bg); padding: 40px; border-radius: 20px;
+            text-align: center; box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color); animation: slideInUp 0.6s ease-out;
+        }
+
+        .mode-buttons { display: flex; gap: 20px; margin-top: 30px; }
+
+        .mode-btn {
+            padding: 20px 30px; border: 2px solid var(--border-color);
+            border-radius: 12px; background: var(--secondary-bg);
+            color: var(--text-primary); cursor: pointer;
+            transition: all 0.3s; font-size: 16px; font-weight: 600;
+        }
+
+        .mode-btn:hover { border-color: var(--accent-primary); background: var(--surface-hover); }
+
+        /* Main App */
+        .app-container { display: none; height: 100vh; flex-direction: row; }
+
+        .sidebar {
+            width: 320px; background: var(--secondary-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
+        }
+
+        .sidebar-header { padding: 24px; border-bottom: 1px solid var(--border-color); }
+
+        .sidebar-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+
+        .logo-icon {
+            width: 40px; height: 40px; background: var(--gradient-primary);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 18px; color: white;
+        }
+
+        .mode-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+
+        .mode-toggle-btn {
+            flex: 1; padding: 10px; border: 2px solid var(--border-color); border-radius: 8px;
+            background: var(--secondary-bg); color: var(--text-primary);
+            cursor: pointer; transition: all 0.3s; font-size: 14px;
+        }
+
+        .mode-toggle-btn.active { background: var(--gradient-primary); color: white; }
+
+        .new-chat-btn {
+            width: 100%; padding: 16px; background: var(--surface-bg);
+            border: 1px solid var(--border-color); border-radius: 12px;
+            color: var(--text-primary); cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 600;
+        }
+
+        .new-chat-btn:hover { background: var(--surface-hover); }
+
+        .chat-history { flex: 1; padding: 20px; overflow-y: auto; }
+
+        .chat-history-title {
+            color: var(--text-muted); font-size: 14px; font-weight: 600;
+            margin-bottom: 16px; text-transform: uppercase;
+        }
+
+        .chat-item {
+            padding: 12px 16px; border-radius: 8px; cursor: pointer;
+            transition: all 0.3s; margin-bottom: 8px; border: 1px solid transparent;
+        }
+
+        .chat-item:hover { background: var(--surface-hover); border-color: var(--border-color); }
+        .chat-item.active { background: var(--accent-primary); }
+
+        .chat-item-text { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .chat-item-preview { color: var(--text-secondary); font-size: 13px; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .chat-item-time { color: var(--text-muted); font-size: 11px; margin-top: 2px; }
+
+        .chat-item-delete {
+            opacity: 0; transition: opacity 0.3s; background: #ff4444; color: white;
+            border: none; width: 20px; height: 20px; border-radius: 4px;
+            cursor: pointer; font-size: 10px;
+        }
+
+        .chat-item:hover .chat-item-delete { opacity: 1; }
+
+        .sidebar-footer { padding: 20px; border-top: 1px solid var(--border-color); }
+
+        .user-info { display: flex; align-items: center; gap: 12px; }
+
+        .user-avatar {
+            width: 40px; height: 40px; background: var(--gradient-primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: white;
+        }
+
+        .user-name { color: var(--text-primary); font-weight: 600; font-size: 16px; }
+
+        .premium-badge {
+            background: var(--gradient-primary); color: white;
+            padding: 4px 8px; border-radius: 6px; font-size: 10px;
+            font-weight: 700; margin-top: 4px; display: none;
+        }
+
+        /* Main Content */
+        .main-content { flex: 1; display: flex; flex-direction: column; }
+
+        .chat-header {
+            padding: 20px 24px; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--secondary-bg);
+        }
+
+        .chat-title { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+        .mode-indicator { font-size: 14px; color: var(--text-muted); }
+
+        .header-actions { display: flex; gap: 12px; }
+
+        .header-btn {
+            padding: 10px 16px; background: var(--surface-bg);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            color: var(--text-primary); cursor: pointer; transition: all 0.3s;
+            font-size: 14px; font-weight: 500;
+        }
+
+        .header-btn:hover { background: var(--surface-hover); }
+
+        .chat-messages { flex: 1; padding: 24px; overflow-y: auto; scroll-behavior: smooth; }
+
+        .welcome-screen {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; height: 100%; text-align: center;
+        }
+
+        .welcome-logo {
+            width: 100px; height: 100px; background: var(--gradient-primary);
+            border-radius: 25px; display: flex; align-items: center; justify-content: center;
+            font-size: 40px; font-weight: 900; color: white; margin-bottom: 24px;
+        }
+
+        .welcome-title {
+            font-size: 48px; font-weight: 900; margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), #777777);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-subtitle {
+            color: var(--text-secondary); font-size: 18px; margin-bottom: 40px;
+            max-width: 600px; line-height: 1.6;
+        }
+
+        .welcome-features {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 24px; max-width: 600px; width: 100%;
+        }
+
+        .feature-card {
+            padding: 24px; background: var(--surface-bg);
+            border: 1px solid var(--border-color); border-radius: 16px; text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px; height: 60px; background: var(--gradient-primary);
+            border-radius: 15px; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: white; margin: 0 auto 16px;
+        }
+
+        .feature-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); }
+        .feature-description { color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
+
+        /* Messages */
+        .message { display: flex; gap: 16px; margin-bottom: 24px; animation: slideIn 0.3s ease-out; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .message-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; flex-shrink: 0;
+        }
+
+        .user-avatar-msg { background: var(--gradient-primary); color: white; }
+        .bot-avatar-msg { background: var(--surface-bg); color: var(--text-primary); border: 2px solid var(--border-color); }
+
+        .message-content {
+            flex: 1; background: var(--surface-bg);
+            border: 1px solid var(--border-color); border-radius: 16px;
+            padding: 16px 20px; position: relative;
+        }
+
+        .message-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .message-author { font-weight: 700; color: var(--text-primary); }
+        .message-time { font-size: 12px; color: var(--text-muted); }
+        .message-text { line-height: 1.6; color: var(--text-primary); }
+
+        .message-actions {
+            position: absolute; top: 12px; right: 12px; opacity: 0;
+            transition: opacity 0.3s; display: flex; gap: 8px;
+        }
+
+        .message:hover .message-actions { opacity: 1; }
+
+        .message-btn {
+            background: var(--surface-hover); border: 1px solid var(--border-color);
+            color: var(--text-muted); width: 28px; height: 28px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 12px; transition: all 0.2s;
+        }
+
+        .message-btn:hover { background: var(--accent-primary); color: var(--text-primary); }
+
+        /* Typing Indicator */
+        .typing-indicator { display: none; margin-bottom: 24px; }
+
+        .typing-content {
+            display: flex; align-items: center; gap: 8px;
+            padding: 16px 20px; background: var(--surface-bg);
+            border: 1px solid var(--border-color); border-radius: 16px;
+        }
+
+        .typing-dots { display: flex; gap: 4px; }
+
+        .dot {
+            width: 8px; height: 8px; background: var(--text-muted);
+            border-radius: 50%; animation: typing 1.5s infinite;
+        }
+
+        .dot:nth-child(1) { animation-delay: 0s; }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing { 0%, 60%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+        /* Input Area */
+        .chat-input-container {
+            padding: 24px; border-top: 1px solid var(--border-color);
+            background: var(--secondary-bg);
+        }
+
+        .input-wrapper { position: relative; max-width: 100%; }
+
+        .chat-input {
+            width: 100%; padding: 16px 120px 16px 20px; background: var(--surface-bg);
+            border: 2px solid var(--border-color); border-radius: 12px;
+            color: var(--text-primary); font-size: 16px; resize: none;
+            min-height: 50px; max-height: 150px; transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            outline: none; border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.1);
+        }
+
+        .input-actions {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .input-btn {
+            background: var(--surface-hover); border: 1px solid var(--border-color);
+            color: var(--text-muted); width: 36px; height: 36px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 14px; transition: all 0.3s;
+        }
+
+        .input-btn:hover { background: var(--accent-primary); color: var(--text-primary); }
+        .input-btn.active { background: #ff4444; color: white; }
+
+        .send-button {
+            background: var(--gradient-primary); color: white; border: none;
+            width: 40px; height: 40px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 16px; transition: all 0.3s;
+        }
+
+        .send-button:hover { transform: scale(1.05); }
+
+        /* Voice & File Features */
+        .voice-recording {
+            background: var(--surface-bg); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 12px 16px; margin-top: 8px;
+            display: none; align-items: center; gap: 12px; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+        .voice-animation { display: flex; gap: 3px; }
+
+        .voice-wave {
+            width: 3px; height: 20px; background: #4CAF50;
+            border-radius: 2px; animation: voiceWave 1s infinite;
+        }
+
+        .voice-wave:nth-child(1) { animation-delay: 0s; }
+        .voice-wave:nth-child(2) { animation-delay: 0.2s; }
+        .voice-wave:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes voiceWave { 0%, 100% { height: 8px; } 50% { height: 20px; } }
+
+        .file-preview {
+            background: var(--surface-bg); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 12px 16px; margin-top: 8px; display: none;
+        }
+
+        .file-info { display: flex; align-items: center; gap: 12px; color: var(--text-primary); }
+
+        .remove-file {
+            background: #ff4444; color: white; border: none;
+            width: 20px; height: 20px; border-radius: 50%;
+            cursor: pointer; font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Premium Modal */
+        .premium-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8); display: none;
+            justify-content: center; align-items: center; z-index: 1002;
+        }
+
+        .premium-content {
+            background: var(--surface-bg); padding: 40px; border-radius: 20px;
+            text-align: center; max-width: 500px; width: 90%;
+            border: 1px solid var(--border-color);
+        }
+
+        .premium-title { font-size: 32px; font-weight: 900; margin-bottom: 16px; color: var(--text-primary); }
+        .premium-description { color: var(--text-secondary); margin-bottom: 32px; line-height: 1.6; }
+
+        .premium-features { list-style: none; text-align: left; margin-bottom: 32px; }
+
+        .premium-features li {
+            padding: 8px 0; color: var(--text-primary);
+            display: flex; align-items: center; gap: 12px;
+        }
+
+        .premium-features i { color: #4CAF50; width: 20px; }
+
+        .premium-buttons { display: flex; gap: 16px; justify-content: center; }
+
+        .premium-btn {
+            padding: 16px 32px; border-radius: 12px;
+            font-size: 16px; font-weight: 600; cursor: pointer;
+            transition: all 0.3s; border: 2px solid var(--border-color);
+        }
+
+        .upgrade-btn { background: var(--gradient-primary); color: white; border-color: transparent; }
+        .upgrade-btn:hover { transform: translateY(-2px); }
+        .close-btn { background: transparent; color: var(--text-primary); }
+        .close-btn:hover { background: var(--surface-hover); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar { width: 100%; position: fixed; left: -100%; z-index: 999; transition: left 0.3s; }
+            .sidebar.open { left: 0; }
+            .welcome-features { grid-template-columns: 1fr; }
+            .welcome-title { font-size: 32px; }
+            .mode-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <div class="login-logo">P</div>
+            <h1 class="login-title">Welcome to Priye.AI</h1>
+            <p class="login-subtitle">Your intelligent assistant created by Ronak Kanani</p>
+            
+            <form class="login-form" id="loginForm">
+                <input type="text" class="form-input" id="userName" placeholder="Enter your name" required>
+                <input type="email" class="form-input" id="userEmail" placeholder="Enter your email" required>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-rocket"></i> Get Started
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Created with ❤️ by <strong>Ronak Kanani</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mode Selection -->
+    <div class="mode-selection" id="modeSelection">
+        <div class="mode-card">
+            <h2 style="color: var(--text-primary); margin-bottom: 20px;">Choose Your Mode</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Select how you want to use Priye.AI</p>
+            
+            <div class="mode-buttons">
+                <div class="mode-btn" onclick="selectMode('general')">
+                    <i class="fas fa-comments" style="font-size: 24px; margin-bottom: 8px;"></i>
+                    <div>General Mode</div>
+                    <small>Chat history saved</small>
+                </div>
+                <div class="mode-btn" onclick="selectMode('privacy')">
+                    <i class="fas fa-lock" style="font-size: 24px; margin-bottom: 8px;"></i>
+                    <div>Privacy Mode</div>
+                    <small>No chat history saved</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-container" id="appContainer">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">P</div>
+                    <div>
+                        <h3 style="color: var(--text-primary);">Priye.AI</h3>
+                        <p style="color: var(--text-muted); font-size: 12px;">by Ronak Kanani</p>
+                    </div>
+                </div>
+                
+                <div class="mode-toggle">
+                    <button class="mode-toggle-btn active" id="generalModeBtn" onclick="switchMode('general')">
+                        💬 General
+                    </button>
+                    <button class="mode-toggle-btn" id="privacyModeBtn" onclick="switchMode('privacy')">
+                        🔒 Privacy
+                    </button>
+                </div>
+                
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+            </div>
+            
+            <div class="chat-history" id="chatHistory">
+                <div class="chat-history-title">Recent Chats</div>
+                <div style="color: var(--text-muted); font-size: 14px; padding: 16px; text-align: center;">
+                    No recent chats
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div>
+                        <div class="user-name" id="displayUserName">User</div>
+                        <div class="premium-badge" id="premiumBadge">PRO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="chat-header">
+                <div>
+                    <h2 class="chat-title" id="chatTitle">General Chat</h2>
+                    <div class="mode-indicator" id="modeIndicator">💬 General Mode</div>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="clearChatBtn">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button class="header-btn" id="shareBtn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                    <button class="header-btn" id="exportBtn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="header-btn" id="premiumBtn">
+                        <i class="fas fa-crown"></i> Pro
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-logo">P</div>
+                    <h1 class="welcome-title">Hello! I'm Priye.AI</h1>
+                    <p class="welcome-subtitle">
+                        Your intelligent assistant created by Ronak Kanani, powered by BlenderBot-400 running locally. 
+                        I can help you with conversations, answer questions, provide assistance, and much more!
+                    </p>
+                    
+                    <div class="welcome-features">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                            <h3 class="feature-title">AI-Powered Chat</h3>
+                            <p class="feature-description">Powered by BlenderBot-400 model running locally for fast responses</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h3 class="feature-title">Local Processing</h3>
+                            <p class="feature-description">Your conversations are processed locally for privacy and speed</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-microphone"></i></div>
+                            <h3 class="feature-title">Voice Input</h3>
+                            <p class="feature-description">Speak your questions using voice recognition technology</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-file-upload"></i></div>
+                            <h3 class="feature-title">File Support</h3>
+                            <p class="feature-description">Upload and share images, documents, and files</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar bot-avatar-msg">P</div>
+                    <div class="typing-content">
+                        <div class="typing-dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <span style="color: var(--text-muted); font-size: 14px; margin-left: 8px;">
+                            Priye.AI is typing...
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea class="chat-input" id="chatInput" placeholder="Message Priye.AI..." rows="1"></textarea>
+                    <div class="input-actions">
+                        <button class="input-btn" id="fileBtn" title="Attach file">
+                            <i class="fas fa-paperclip"></i>
+                            <input type="file" id="fileInput" hidden accept="image/*,.pdf,.doc,.docx,.txt">
+                        </button>
+                        
+                        <button class="input-btn" id="voiceBtn" title="Voice input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        
+                        <button class="send-button" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="voice-recording" id="voiceRecording">
+                    <div class="voice-animation">
+                        <div class="voice-wave"></div>
+                        <div class="voice-wave"></div>
+                        <div class="voice-wave"></div>
+                    </div>
+                    <span>Listening... Click to stop</span>
+                </div>
+                
+                <div class="file-preview" id="filePreview">
+                    <div class="file-info">
+                        <i class="fas fa-file"></i>
+                        <span id="fileName">file.pdf</span>
+                        <button class="remove-file" id="removeFile">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Modal -->
+    <div class="premium-modal" id="premiumModal">
+        <div class="premium-content">
+            <h2 class="premium-title">🚀 Upgrade to Pro</h2>
+            <p class="premium-description">Unlock unlimited conversations and premium features with Priye.AI Pro!</p>
+            
+            <ul class="premium-features">
+                <li><i class="fas fa-check"></i> Unlimited messages</li>
+                <li><i class="fas fa-check"></i> Priority support</li>
+                <li><i class="fas fa-check"></i> Advanced AI features</li>
+                <li><i class="fas fa-check"></i> Export chat history</li>
+                <li><i class="fas fa-check"></i> Custom themes</li>
+            </ul>
+            
+            <div class="premium-buttons">
+                <button class="premium-btn upgrade-btn" id="upgradeBtn">
+                    <i class="fas fa-crown"></i> Upgrade Now
+                </button>
+                <button class="premium-btn close-btn" id="closeModalBtn">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        const API_BASE_URL = 'http://localhost:5000/api';
+        let currentUser = null, isPremium = false, messageCount = 0, currentChatId = null;
+        let chatHistory = [], userId = null, isPrivacyMode = false, isRecording = false;
+        let recognition = null, selectedFile = null;
+
+        // DOM Elements
+        const loginContainer = document.getElementById('loginContainer');
+        const appContainer = document.getElementById('appContainer');
+        const loginForm = document.getElementById('loginForm');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatMessages = document.getElementById('chatMessages');
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const premiumModal = document.getElementById('premiumModal');
+        const chatHistoryContainer = document.getElementById('chatHistory');
+        const voiceBtn = document.getElementById('voiceBtn');
+        const fileBtn = document.getElementById('fileBtn');
+        const fileInput = document.getElementById('fileInput');
+        const voiceRecording = document.getElementById('voiceRecording');
+        const filePreview = document.getElementById('filePreview');
+
+        // Initialize Speech Recognition
+        function initSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    chatInput.value = transcript;
+                    adjustInputHeight();
+                    stopVoiceRecording();
+                    showNotification(`✅ Voice input: "${transcript}"`);
+                    
+                    // Auto-send if transcript is not empty
+                    if (transcript.trim()) {
+                        setTimeout(() => sendMessage(), 500);
+                    }
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error:', event.error);
+                    stopVoiceRecording();
+                    showNotification('Voice recognition failed. Please try again.');
+                };
+
+                recognition.onend = function() {
+                    stopVoiceRecording();
+                };
+
+                recognition.onstart = function() {
+                    console.log('Voice recognition started');
+                };
+            } else {
+                console.log('Speech recognition not supported');
+            }
+        }
+
+        // Voice Recording Functions
+        function startVoiceRecording() {
+            if (!recognition) {
+                showNotification('Voice input not supported in this browser');
+                return;
+            }
+            
+            try {
+                isRecording = true;
+                voiceBtn.classList.add('active');
+                voiceRecording.style.display = 'flex';
+                recognition.start();
+                showNotification('🎤 Listening... Speak now!');
+            } catch (error) {
+                console.error('Voice recognition error:', error);
+                stopVoiceRecording();
+                showNotification('Voice recognition failed. Please try again.');
+            }
+        }
+
+        function stopVoiceRecording() {
+            if (recognition && isRecording) {
+                try {
+                    recognition.stop();
+                } catch (error) {
+                    console.error('Error stopping recognition:', error);
+                }
+            }
+            isRecording = false;
+            voiceBtn.classList.remove('active');
+            voiceRecording.style.display = 'none';
+        }
+
+        // File Functions
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 10 * 1024 * 1024) {
+                    showNotification('File too large. Maximum size is 10MB.');
+                    return;
+                }
+                selectedFile = file;
+                document.getElementById('fileName').textContent = file.name;
+                filePreview.style.display = 'block';
+                showNotification(`File "${file.name}" attached`);
+            }
+        }
+
+        function removeFile() {
+            selectedFile = null;
+            filePreview.style.display = 'none';
+            fileInput.value = '';
+        }
+
+        // Chat History Functions - FIXED VERSION
+        function saveChatToHistory(userMessage, botResponse) {
+            if (isPrivacyMode) return;
+
+            // Store the current conversation messages
+            const currentMessages = Array.from(chatMessages.querySelectorAll('.message:not(#typingIndicator)')).map(msgEl => {
+                const author = msgEl.querySelector('.message-author').textContent;
+                const text = msgEl.querySelector('.message-text').textContent;
+                const time = msgEl.querySelector('.message-time').textContent;
+                return {
+                    author: author,
+                    text: text,
+                    time: time,
+                    sender: author === 'Priye.AI' ? 'bot' : 'user'
+                };
+            });
+
+            const chatData = {
+                id: currentChatId,
+                title: userMessage.substring(0, 50) + (userMessage.length > 50 ? '...' : ''),
+                lastMessage: botResponse.substring(0, 100) + (botResponse.length > 100 ? '...' : ''),
+                timestamp: new Date().toISOString(),
+                messages: currentMessages
+            };
+
+            // Update existing chat or add new one
+            const existingChatIndex = chatHistory.findIndex(chat => chat.id === currentChatId);
+            if (existingChatIndex !== -1) {
+                chatHistory[existingChatIndex] = chatData;
+            } else {
+                chatHistory.unshift(chatData);
+            }
+
+            if (chatHistory.length > 20) chatHistory = chatHistory.slice(0, 20);
+
+            localStorage.setItem('priye-chat-history', JSON.stringify(chatHistory));
+            updateChatHistoryUI();
+        }
+
+        function loadChatHistory() {
+            if (isPrivacyMode) return;
+            try {
+                const saved = localStorage.getItem('priye-chat-history');
+                if (saved) {
+                    chatHistory = JSON.parse(saved);
+                    updateChatHistoryUI();
+                }
+            } catch (error) {
+                chatHistory = [];
+            }
+        }
+
+        function updateChatHistoryUI() {
+            if (isPrivacyMode) {
+                chatHistoryContainer.innerHTML = '<div class="chat-history-title">Privacy Mode - No History</div>';
+                return;
+            }
+
+            let historyHTML = '<div class="chat-history-title">Recent Chats</div>';
+            
+            if (chatHistory.length === 0) {
+                historyHTML += '<div style="color: var(--text-muted); font-size: 14px; padding: 16px; text-align: center;">No recent chats</div>';
+            } else {
+                chatHistory.forEach((chat) => {
+                    const isActive = chat.id === currentChatId ? 'active' : '';
+                    const timeAgo = getTimeAgo(new Date(chat.timestamp));
+                    
+                    historyHTML += `
+                        <div class="chat-item ${isActive}" onclick="loadChat('${chat.id}')">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="chat-item-text">${chat.title}</div>
+                                    <div class="chat-item-preview">${chat.lastMessage}</div>
+                                    <div class="chat-item-time">${timeAgo}</div>
+                                </div>
+                                <button class="chat-item-delete" onclick="event.stopPropagation(); deleteChat('${chat.id}')">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            chatHistoryContainer.innerHTML = historyHTML;
+        }
+
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins}m ago`;
+            if (diffHours < 24) return `${diffHours}h ago`;
+            if (diffDays < 7) return `${diffDays}d ago`;
+            return date.toLocaleDateString();
+        }
+
+        function loadChat(chatId) {
+            if (isPrivacyMode) return;
+            
+            const chat = chatHistory.find(c => c.id === chatId);
+            if (!chat) {
+                showNotification('Chat not found!');
+                return;
+            }
+
+            // Clear current messages
+            const messages = chatMessages.querySelectorAll('.message:not(#typingIndicator)');
+            messages.forEach(msg => msg.remove());
+            
+            // Hide welcome screen
+            if (welcomeScreen) welcomeScreen.style.display = 'none';
+
+            // Load stored messages
+            if (chat.messages && chat.messages.length > 0) {
+                chat.messages.forEach(msg => {
+                    addStoredMessage(msg.text, msg.sender, msg.time);
+                });
+            }
+
+            // Update current chat ID
+            currentChatId = chatId;
+            updateChatHistoryUI();
+            showNotification(`Loaded chat: ${chat.title}`);
+            
+            // Scroll to bottom
+            setTimeout(() => scrollToBottom(), 100);
+        }
+
+        function addStoredMessage(text, sender, originalTime) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            const avatar = document.createElement('div');
+            avatar.className = `message-avatar ${sender}-avatar-msg`;
+            avatar.textContent = sender === 'user' ? 
+                (currentUser ? currentUser.name.charAt(0).toUpperCase() : 'U') : 'P';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            
+            const header = document.createElement('div');
+            header.className = 'message-header';
+            
+            const author = document.createElement('span');
+            author.className = 'message-author';
+            author.textContent = sender === 'user' ? 
+                (currentUser ? currentUser.name : 'User') : 'Priye.AI';
+            
+            const time = document.createElement('span');
+            time.className = 'message-time';
+            time.textContent = originalTime;
+            
+            const messageText = document.createElement('div');
+            messageText.className = 'message-text';
+            messageText.style.whiteSpace = 'pre-wrap';
+            messageText.textContent = text;
+            
+            const actions = document.createElement('div');
+            actions.className = 'message-actions';
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'message-btn';
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            copyBtn.onclick = () => copyToClipboard(text);
+            
+            actions.appendChild(copyBtn);
+            header.appendChild(author);
+            header.appendChild(time);
+            content.appendChild(header);
+            content.appendChild(messageText);
+            content.appendChild(actions);
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            
+            if (chatMessages && typingIndicator) {
+                chatMessages.insertBefore(messageDiv, typingIndicator);
+            } else if (chatMessages) {
+                chatMessages.appendChild(messageDiv);
+            }
+            
+            return messageDiv;
+        }
+
+        function deleteChat(chatId) {
+            if (confirm('Delete this chat?')) {
+                chatHistory = chatHistory.filter(chat => chat.id !== chatId);
+                localStorage.setItem('priye-chat-history', JSON.stringify(chatHistory));
+                
+                if (currentChatId === chatId) {
+                    startNewChatSilent();
+                }
+                
+                updateChatHistoryUI();
+                showNotification('Chat deleted');
+            }
+        }
+
+        // FIXED: New Chat Functions
+        function startNewChatSilent() {
+            currentChatId = Date.now().toString();
+            messageCount = 0;
+            const messages = chatMessages.querySelectorAll('.message:not(#typingIndicator)');
+            messages.forEach(msg => msg.remove());
+            if (welcomeScreen) welcomeScreen.style.display = 'flex';
+            updateChatHistoryUI();
+        }
+
+        function startNewChat() {
+            currentChatId = Date.now().toString();
+            messageCount = 0;
+            const messages = chatMessages.querySelectorAll('.message:not(#typingIndicator)');
+            messages.forEach(msg => msg.remove());
+            if (welcomeScreen) welcomeScreen.style.display = 'flex';
+            updateChatHistoryUI();
+            showNotification('Started new chat!');
+        }
+
+        function clearCurrentChat() {
+            if (confirm('Are you sure you want to clear this chat?')) {
+                const messages = chatMessages.querySelectorAll('.message:not(#typingIndicator)');
+                messages.forEach(msg => msg.remove());
+                if (welcomeScreen) welcomeScreen.style.display = 'flex';
+                messageCount = 0;
+                
+                if (!isPrivacyMode) {
+                    chatHistory = chatHistory.filter(chat => chat.id !== currentChatId);
+                    localStorage.setItem('priye-chat-history', JSON.stringify(chatHistory));
+                }
+                
+                currentChatId = Date.now().toString();
+                updateChatHistoryUI();
+                showNotification('Chat cleared!');
+            }
+        }
+
+        // FIXED: Message Sending - Only save once
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if ((!message && !selectedFile) || typingIndicator.style.display === 'flex') return;
+            
+            if (!isPremium && messageCount >= 5) {
+                premiumModal.style.display = 'flex';
+                return;
+            }
+            
+            if (welcomeScreen) welcomeScreen.style.display = 'none';
+            
+            let fullMessage = message;
+            if (selectedFile) fullMessage += `\n[Attached: ${selectedFile.name}]`;
+            
+            addMessage(fullMessage, 'user');
+            chatInput.value = '';
+            adjustInputHeight();
+            messageCount++;
+            
+            if (selectedFile) removeFile();
+            
+            showTypingIndicator();
+            
+            // Simulate delay for better UX
+            setTimeout(async () => {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/chat`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            message: message,
+                            user_id: userId || 'anonymous',
+                            privacy_mode: isPrivacyMode,
+                            has_file: selectedFile !== null
+                        })
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    hideTypingIndicator();
+                    addMessage(data.response, 'bot');
+                    
+                    if (!isPrivacyMode) {
+                        saveChatToHistory(message, data.response);
+                    }
+                    
+                } catch (error) {
+                    console.log('API error, using fallback response');
+                    hideTypingIndicator();
+                    const fallbackResponse = getFallbackResponse(message);
+                    addMessage(fallbackResponse, 'bot');
+                    
+                    if (!isPrivacyMode) {
+                        saveChatToHistory(message, fallbackResponse);
+                    }
+                }
+            }, 1000); // 1 second delay for better UX
+        }
+
+        // Utility Functions
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Text copied to clipboard!');
+            }).catch(() => {
+                showNotification('Copy failed');
+            });
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed; top: 20px; right: 20px;
+                background: var(--gradient-primary); color: white;
+                padding: 12px 20px; border-radius: 8px; z-index: 1000;
+                font-size: 14px; animation: slideIn 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+        
+        function scrollToBottom() {
+            if (chatMessages) {
+                chatMessages.scrollTo({
+                    top: chatMessages.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function showTypingIndicator() {
+            if (typingIndicator) {
+                typingIndicator.style.display = 'flex';
+                scrollToBottom();
+            }
+        }
+        
+        function hideTypingIndicator() {
+            if (typingIndicator) {
+                typingIndicator.style.display = 'none';
+            }
+        }
+        
+        // Chat Management Functions
+        function upgradeToPremium() {
+            isPremium = true;
+            messageCount = 0;
+            document.getElementById('premiumBadge').style.display = 'block';
+            premiumModal.style.display = 'none';
+            showNotification('🎉 Welcome to Pro!');
+        }
+        
+        // Share & Export Functions
+        function shareChat() {
+            const messages = Array.from(chatMessages.querySelectorAll('.message:not(#typingIndicator)'));
+            if (messages.length === 0) {
+                showNotification('No messages to share!');
+                return;
+            }
+            
+            const chatContent = messages.map(msg => {
+                const author = msg.querySelector('.message-author').textContent;
+                const text = msg.querySelector('.message-text').textContent;
+                return `${author}: ${text}`;
+            }).join('\n');
+            
+            copyToClipboard(`Chat with Priye.AI\n\n${chatContent}`);
+            showNotification('Chat copied to clipboard!');
+        }
+        
+        function exportChat() {
+            const messages = Array.from(chatMessages.querySelectorAll('.message:not(#typingIndicator)'));
+            if (messages.length === 0) {
+                showNotification('No messages to export!');
+                return;
+            }
+            
+            const chatContent = messages.map(msg => {
+                const author = msg.querySelector('.message-author').textContent;
+                const text = msg.querySelector('.message-text').textContent;
+                const time = msg.querySelector('.message-time').textContent;
+                return `[${time}] ${author}: ${text}`;
+            }).join('\n');
+            
+            const blob = new Blob([chatContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `priye-ai-chat-${Date.now()}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showNotification('Chat exported!');
+        }
+
+        // ENHANCED Fallback responses with more variety
+        function getFallbackResponse(message) {
+            const lowerMsg = message.toLowerCase();
+            
+            if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+                return 'Hello! I\'m Priye.AI, created by Ronak Kanani and powered by BlenderBot-400. How can I help you today?';
+            } 
+            else if (lowerMsg.includes('how are you') || lowerMsg.includes('what\'s up')) {
+                return 'I\'m doing great! 😊 I\'m running on BlenderBot-400 locally and ready to help you. How are you doing?';
+            } 
+            else if (lowerMsg.includes('ronak') || lowerMsg.includes('creator') || lowerMsg.includes('maker') || lowerMsg.includes('developer')) {
+                return 'I was created by Ronak Kanani! 👨‍💻 He\'s a brilliant software engineer and AI enthusiast who built me using BlenderBot-400 model.';
+            } 
+            else if (lowerMsg.includes('programming') || lowerMsg.includes('code') || lowerMsg.includes('javascript') || lowerMsg.includes('python') || lowerMsg.includes('web development')) {
+                return 'Programming is a great topic! 💻 I can help with various programming concepts, debugging, and general coding questions. What do you need help with?';
+            } 
+            else if (lowerMsg.includes('joke') || lowerMsg.includes('funny') || lowerMsg.includes('comedy')) {
+                const jokes = [
+                    'Why do programmers prefer dark mode? Because light attracts bugs! 🐛😄',
+                    'A programmer\'s wife asks: "What are you doing?" Programmer: "Fixing a bug" Wife: "How long will it take?" Programmer: "Just 5 minutes"... 3 hours later... 😅',
+                    'HTML and CSS got married... Output: Beautiful but no logic! 💍😂'
+                ];
+                return jokes[Math.floor(Math.random() * jokes.length)];
+            }
+            else if (lowerMsg.includes('blenderbot') || lowerMsg.includes('model') || lowerMsg.includes('ai')) {
+                return 'I\'m powered by BlenderBot-400, a conversational AI model running locally on this system! 🤖 This ensures fast responses and privacy for our conversations.';
+            }
+            else if (lowerMsg.includes('local') || lowerMsg.includes('offline')) {
+                return 'Yes! I run locally using BlenderBot-400, which means your conversations stay private and I can respond quickly without internet dependency! 🔒⚡';
+            }
+            else if (lowerMsg.includes('weather') || lowerMsg.includes('temperature')) {
+                return 'I don\'t have access to real-time weather data, but you can check your weather app! ☀️🌧️ Would you like to chat about something else?';
+            }
+            else if (lowerMsg.includes('time') || lowerMsg.includes('date')) {
+                const now = new Date();
+                return `Current time is: ${now.toLocaleTimeString()} and date is: ${now.toLocaleDateString()} ⏰📅`;
+            }
+            else if (lowerMsg.includes('help')) {
+                return 'Absolutely! I\'m here to help! 🤝 I\'m powered by BlenderBot-400 and can assist with conversations, questions, and general chat. What would you like to know?';
+            }
+            else if (lowerMsg.includes('thanks') || lowerMsg.includes('thank you')) {
+                return 'You\'re very welcome! 🙏 I\'m happy I could help. Feel free to ask me anything else anytime! 😊';
+            }
+            else {
+                const responses = [
+                    'That\'s an interesting question! 🤔 I\'m here to help with conversations and questions. Could you be more specific?',
+                    'Hmm, that\'s a new question! 💭 I\'m powered by BlenderBot-400 and ready to help. Could you explain a bit more?',
+                    'Great question! 🌟 I can help with conversations, general questions, and more. What specifically would you like to know?',
+                    'That\'s an interesting topic! 🚀 Ronak built me with BlenderBot-400 to be helpful. Could you tell me more about what you\'d like to discuss?'
+                ];
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+        }
+        
+        // Message Display
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            const avatar = document.createElement('div');
+            avatar.className = `message-avatar ${sender}-avatar-msg`;
+            avatar.textContent = sender === 'user' ? 
+                (currentUser ? currentUser.name.charAt(0).toUpperCase() : 'U') : 'P';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            
+            const header = document.createElement('div');
+            header.className = 'message-header';
+            
+            const author = document.createElement('span');
+            author.className = 'message-author';
+            author.textContent = sender === 'user' ? 
+                (currentUser ? currentUser.name : 'User') : 'Priye.AI';
+            
+            const time = document.createElement('span');
+            time.className = 'message-time';
+            time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            const messageText = document.createElement('div');
+            messageText.className = 'message-text';
+            messageText.style.whiteSpace = 'pre-wrap';
+            messageText.textContent = text;
+            
+            const actions = document.createElement('div');
+            actions.className = 'message-actions';
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'message-btn';
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            copyBtn.onclick = () => copyToClipboard(text);
+            
+            actions.appendChild(copyBtn);
+            header.appendChild(author);
+            header.appendChild(time);
+            content.appendChild(header);
+            content.appendChild(messageText);
+            content.appendChild(actions);
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            
+            if (chatMessages && typingIndicator) {
+                chatMessages.insertBefore(messageDiv, typingIndicator);
+            } else if (chatMessages) {
+                chatMessages.appendChild(messageDiv);
+            }
+            
+            scrollToBottom();
+            return messageDiv;
+        }
+        
+        // Mode Functions
+        function selectMode(mode) {
+            isPrivacyMode = (mode === 'privacy');
+            document.getElementById('modeSelection').style.display = 'none';
+            appContainer.style.display = 'flex';
+            updateModeButtons();
+            updateModeIndicator();
+            if (!isPrivacyMode) loadChatHistory();
+            startNewChatSilent();
+        }
+        
+        function switchMode(mode) {
+            const newPrivacyMode = (mode === 'privacy');
+            if (isPrivacyMode !== newPrivacyMode) {
+                if (confirm('Switching modes will clear the current chat. Continue?')) {
+                    isPrivacyMode = newPrivacyMode;
+                    updateModeButtons();
+                    updateModeIndicator();
+                    clearChatSilently();
+                    if (isPrivacyMode) {
+                        chatHistoryContainer.innerHTML = '<div class="chat-history-title">Privacy Mode - No History</div>';
+                    } else {
+                        loadChatHistory();
+                    }
+                    showNotification(`Switched to ${isPrivacyMode ? 'Privacy' : 'General'} Mode`);
+                }
+            }
+        }
+
+        function updateModeButtons() {
+            const generalBtn = document.getElementById('generalModeBtn');
+            const privacyBtn = document.getElementById('privacyModeBtn');
+            
+            if (isPrivacyMode) {
+                generalBtn.classList.remove('active');
+                privacyBtn.classList.add('active');
+            } else {
+                generalBtn.classList.add('active');
+                privacyBtn.classList.remove('active');
+            }
+        }
+
+        function updateModeIndicator() {
+            const modeIndicator = document.getElementById('modeIndicator');
+            const chatTitle = document.getElementById('chatTitle');
+            
+            if (isPrivacyMode) {
+                modeIndicator.textContent = '🔒 Privacy Mode';
+                chatTitle.textContent = 'Privacy Chat';
+            } else {
+                modeIndicator.textContent = '💬 General Mode';
+                chatTitle.textContent = 'General Chat';
+            }
+        }
+
+        function clearChatSilently() {
+            const messages = chatMessages.querySelectorAll('.message:not(#typingIndicator)');
+            messages.forEach(msg => msg.remove());
+            if (welcomeScreen) welcomeScreen.style.display = 'flex';
+            messageCount = 0;
+            currentChatId = Date.now().toString();
+        }
+        
+        // Event Listeners
+        function setupEventListeners() {
+            loginForm.addEventListener('submit', handleLogin);
+            sendButton.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keydown', handleInputKeydown);
+            chatInput.addEventListener('input', adjustInputHeight);
+            document.getElementById('newChatBtn').addEventListener('click', startNewChat);
+            document.getElementById('clearChatBtn').addEventListener('click', clearCurrentChat);
+            document.getElementById('premiumBtn').addEventListener('click', () => premiumModal.style.display = 'flex');
+            document.getElementById('shareBtn').addEventListener('click', shareChat);
+            document.getElementById('exportBtn').addEventListener('click', exportChat);
+            document.getElementById('upgradeBtn').addEventListener('click', upgradeToPremium);
+            document.getElementById('closeModalBtn').addEventListener('click', () => premiumModal.style.display = 'none');
+            
+            voiceBtn.addEventListener('click', () => {
+                if (isRecording) stopVoiceRecording();
+                else startVoiceRecording();
+            });
+            
+            fileBtn.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', handleFileSelect);
+            document.getElementById('removeFile').addEventListener('click', removeFile);
+            voiceRecording.addEventListener('click', stopVoiceRecording);
+        }
+        
+        // Login Handler
+        async function handleLogin(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            
+            if (name && email) {
+                currentUser = { name, email };
+                userId = 'user_' + Date.now();
+                document.getElementById('displayUserName').textContent = name;
+                document.getElementById('userAvatar').textContent = name.charAt(0).toUpperCase();
+                loginContainer.style.display = 'none';
+                document.getElementById('modeSelection').style.display = 'flex';
+            }
+        }
+        
+        // Input Handlers
+        function handleInputKeydown(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        }
+        
+        function adjustInputHeight() {
+            chatInput.style.height = 'auto';
+            chatInput.style.height = Math.min(chatInput.scrollHeight, 150) + 'px';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            adjustInputHeight();
+            initSpeechRecognition();
+            console.log('✅ Priye.AI initialized successfully');
+        });
+    </script>
+</body>
+</html>

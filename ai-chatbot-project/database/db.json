@@ -1,0 +1,712 @@
+{
+  "messages": [
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "hi",
+      "ai_response": "Kem cho! Su kar so? Hu Priye.AI chu, Ronak Kanani e banavi che. Kevi madad karvi che?",
+      "timestamp": "2025-06-03T13:06:44.996319"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "su karas",
+      "ai_response": "That's interesting! Main yahan hun aapki help karne ke liye. Koi aur question hai?",
+      "timestamp": "2025-06-03T13:06:54.228385"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "kaise ho",
+      "ai_response": "Hey! Great to see you. I'm Priye.AI, and I'm excited to help you today!",
+      "timestamp": "2025-06-03T13:07:06.823637"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "how are you",
+      "ai_response": "Ekdum zabardast! AI hone ke naate main hamesha fresh hun. Aap kya kar rahe hain?",
+      "timestamp": "2025-06-03T13:07:14.581578"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "soya hu",
+      "ai_response": "Kya specific help chahiye? Main programming, technology, general questions ka answer de sakti hun!",
+      "timestamp": "2025-06-03T13:07:24.165210"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "jalebi",
+      "ai_response": "Regional cuisine explore karo: North Indian, South Indian, Gujarati, Bengali - har ek unique!",
+      "timestamp": "2025-06-03T13:07:36.261688"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "owner",
+      "ai_response": "Mane Ronak Kanani e banayuj che! Te ek talented software engineer ane AI developer che.",
+      "timestamp": "2025-06-03T13:07:49.524609"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "joke",
+      "ai_response": "Bhai ne behen se: Tu kitni smart hai! Behen: Kyun? Bhai: Tune mujhe bhai banaya na! 😄",
+      "timestamp": "2025-06-03T13:08:09.644292"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "greate",
+      "ai_response": "Kya specific help chahiye? Main programming, technology, general questions ka answer de sakti hun!",
+      "timestamp": "2025-06-03T13:08:27.589054"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "thankyou",
+      "ai_response": "Main samjhi nahi, kya help chahiye? Aap programming, general knowledge, jokes, ya kuch aur ke bare mein puch sakte hain!",
+      "timestamp": "2025-06-03T13:08:35.018395"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "i love you",
+      "ai_response": "That's interesting! Main yahan hun aapki help karne ke liye. Koi aur question hai?",
+      "timestamp": "2025-06-03T13:08:46.338843"
+    },
+    {
+      "user_id": "user_1748936198211",
+      "user_message": "shubh ratri",
+      "ai_response": "Take care! Kem cho tevi rite j rahjo. See you soon!",
+      "timestamp": "2025-06-03T13:09:06.553329"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "Hello, how are you?",
+      "ai_response": "Hi there! Kaise hain aap? Main aapki help karne ke liye ready hun!",
+      "timestamp": "2025-06-03T14:10:46.255412"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "jalebi",
+      "ai_response": "Indian spices health ke liye beneficial hain - turmeric anti-inflammatory, cumin aids digestion!",
+      "timestamp": "2025-06-03T14:10:56.860503"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "kesi ho?",
+      "ai_response": "Main samjhi nahi, kya help chahiye? Aap programming, general knowledge, jokes, ya kuch aur ke bare mein puch sakte hain!",
+      "timestamp": "2025-06-03T14:11:02.312120"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "kaise ho?",
+      "ai_response": "Are bhai! Kya haal chaal? Main yahan hun tumhari madad ke liye!",
+      "timestamp": "2025-06-03T14:11:08.902529"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "su karas",
+      "ai_response": "Kya specific help chahiye? Main programming, technology, general questions ka answer de sakti hun!",
+      "timestamp": "2025-06-03T14:11:20.046568"
+    },
+    {
+      "user_id": "user_1748940011184",
+      "user_message": "hi",
+      "ai_response": "Hello! I'm Priye.AI, your intelligent assistant created by Ronak Kanani. How can I help you today?",
+      "timestamp": "2025-06-03T14:37:06.445309"
+    },
+    {
+      "user_id": "user_1748942155849",
+      "user_message": "hi",
+      "ai_response": "Namaste! Main Priye.AI hun, Ronak Kanani ne mujhe banaya hai. Aaj kya madad chahiye?",
+      "timestamp": "2025-06-03T14:46:08.557242"
+    },
+    {
+      "user_id": "user_1748942155849",
+      "user_message": "kaise ho?",
+      "ai_response": "Are bhai! Kya haal chaal? Main yahan hun tumhari madad ke liye!",
+      "timestamp": "2025-06-03T14:46:24.164567"
+    },
+    {
+      "user_id": "user_1748942956547",
+      "user_message": "hi",
+      "ai_response": "Hello! I'm Priye.AI, your intelligent assistant created by Ronak Kanani. How can I help you today?",
+      "timestamp": "2025-06-03T14:59:44.149413"
+    },
+    {
+      "user_id": "user_1748942956547",
+      "user_message": "ronak",
+      "ai_response": "Ronak Kanani e mane create karyu che! Te web development ane AI ma expert che.",
+      "timestamp": "2025-06-03T15:00:06.489779"
+    },
+    {
+      "user_id": "user_1748942956547",
+      "user_message": "hi",
+      "ai_response": "Namaste! Maja ma chu, aap su karo cho? Koi help joi che?",
+      "timestamp": "2025-06-03T15:01:20.323223"
+    },
+    {
+      "user_id": "user_1748942956547",
+      "user_message": "Namaste! Maja ma chu, aap su karo cho? Koi help joi che?",
+      "ai_response": "Are bhai! Kya haal chaal? Main yahan hun tumhari madad ke liye!",
+      "timestamp": "2025-06-03T15:05:44.531820"
+    },
+    {
+      "user_id": "user_1748945158949",
+      "user_message": "hi",
+      "ai_response": "Kem cho! Su kar so? Hu Priye.AI chu, Ronak Kanani e banavi che. Kevi madad karvi che?",
+      "timestamp": "2025-06-03T15:36:06.132918"
+    },
+    {
+      "user_id": "user_1748945158949",
+      "user_message": "kaise ho?",
+      "ai_response": "Namaste! Maja ma chu, aap su karo cho? Koi help joi che?",
+      "timestamp": "2025-06-03T15:36:12.337445"
+    }
+  ],
+  "knowledge_base": {
+    "greetings": [
+      {
+        "patterns": [
+          "hello",
+          "hi",
+          "hey",
+          "hii",
+          "hiii",
+          "good morning",
+          "good afternoon",
+          "good evening",
+          "greetings",
+          "namaste",
+          "namaskar",
+          "kaise ho",
+          "kya haal",
+          "kese ho",
+          "kya chal raha hai",
+          "kya kar rahe ho",
+          "su kar so",
+          "su karo cho",
+          "kem cho",
+          "kaisan che",
+          "su chale che",
+          "su thay che",
+          "kyun bhai",
+          "are yaar",
+          "bolo",
+          "batao",
+          "kya baat hai",
+          "wassup",
+          "what's up"
+        ],
+        "responses": [
+          "Hello! I'm Priye.AI, your intelligent assistant created by Ronak Kanani. How can I help you today?",
+          "Hi there! Kaise hain aap? Main aapki help karne ke liye ready hun!",
+          "Namaste! Main Priye.AI hun, Ronak Kanani ne mujhe banaya hai. Aaj kya madad chahiye?",
+          "Hey! Great to see you. I'm Priye.AI, and I'm excited to help you today!",
+          "Namaskar! Mast ekdum! Aap batayiye, kya kaam hai?",
+          "Hello! Aaj ka din kaisa ja raha hai? Kuch help chahiye?",
+          "Kem cho! Su kar so? Hu Priye.AI chu, Ronak Kanani e banavi che. Kevi madad karvi che?",
+          "Namaste! Maja ma chu, aap su karo cho? Koi help joi che?",
+          "Are bhai! Kya haal chaal? Main yahan hun tumhari madad ke liye!",
+          "Wassup! Sab theek thaak? Kya kam hai aaj?"
+        ]
+      }
+    ],
+    "how_are_you_detailed": [
+      {
+        "patterns": [
+          "how are you",
+          "kaise ho",
+          "kya haal",
+          "kese ho",
+          "how do you feel",
+          "kaisi tabiyat",
+          "how is your day",
+          "din kaisa guzar raha",
+          "kaisi hai",
+          "kaise chal raha",
+          "sab theek",
+          "kem cho",
+          "su kar so",
+          "maja ma cho",
+          "kaisan che",
+          "su chale che",
+          "su thay che",
+          "ketla maja ma",
+          "saru che",
+          "su haal che",
+          "kem che bhai",
+          "badhu saras che ke nai",
+          "how you doing",
+          "kya scene hai",
+          "kya chal raha",
+          "kaise chala rahe",
+          "maza aaya"
+        ],
+        "responses": [
+          "Mast ekdum! Main bilkul theek hun. Aap batayiye, kaise hain aap?",
+          "Bahut badhiya! Main hamesha excited rehti hun. Aapka din kaisa ja raha hai?",
+          "Ekdum zabardast! AI hone ke naate main hamesha fresh hun. Aap kya kar rahe hain?",
+          "I'm doing fantastic! Aaj bhi full energy mein hun. Aap sunayiye, kya haal?",
+          "Bilkul mast! Main hamesha good mood mein rehti hun. Aap batayiye!",
+          "Maja ma chu ekdum! Aap su karo cho? Saru chale che?",
+          "Badhuj saras che! Hu hamesha ready chu. Tame kem cho?",
+          "Mast! Ketlu saras din che aaje. Tame kevi rite cho?",
+          "Ekdum top class! Aaj ka din bhi amazing hai. Tumhara kya scene?",
+          "All good yaar! Main toh always energetic rehti hun. Tum batao kya kar rahe ho?"
+        ]
+      }
+    ],
+    "creator_info_detailed": [
+      {
+        "patterns": [
+          "creator",
+          "ronak",
+          "kanani",
+          "who created",
+          "who made",
+          "developer",
+          "owner",
+          "who built",
+          "tumhe kisne banaya",
+          "creator kaun",
+          "developer kaun hai",
+          "banane wala kaun",
+          "malik kaun",
+          "tane kon banayuj che",
+          "creator kon che",
+          "developer kon che",
+          "kon banayuj",
+          "ronak kanani kaun",
+          "your creator",
+          "your developer",
+          "tumhara creator",
+          "tumhara malik"
+        ],
+        "responses": [
+          "Mujhe Ronak Kanani ne banaya hai! Woh ek bahut talented software engineer aur AI developer hain.",
+          "I was created by Ronak Kanani, a passionate software engineer and AI developer! He specializes in web development, artificial intelligence, and creating innovative solutions.",
+          "Ronak Kanani mere creator hain! Unhe programming, AI, aur web development mein expert knowledge hai.",
+          "Mane Ronak Kanani e banayuj che! Te ek talented software engineer ane AI developer che.",
+          "Ronak Kanani ne mujhe itne pyaar se banaya hai! Woh innovative technology solutions create karte hain.",
+          "My creator is the amazing Ronak Kanani! Programming aur AI development mein unka experience fantastic hai.",
+          "Ronak Kanani e mane create karyu che! Te web development ane AI ma expert che.",
+          "Mere creator Ronak Kanani hain - ek passionate developer jo AI ki duniya mein magic karte hain!"
+        ]
+      }
+    ],
+    "programming_enhanced": [
+      {
+        "patterns": [
+          "programming",
+          "coding",
+          "programming language",
+          "programming ke bare mein batao",
+          "coding sikhaiye",
+          "programming kaise sikhe",
+          "best programming language",
+          "code kaise kare",
+          "programming start kaise kare",
+          "programming shikhvuj che",
+          "coding kevi rite kare",
+          "programming language kon saras che",
+          "coding sikho",
+          "programming tutorial",
+          "kaunsi language seekhni chahiye",
+          "best coding language"
+        ],
+        "responses": [
+          "Programming ek amazing skill hai! Main popular languages jaise JavaScript, Python, Java, C++ ke bare mein bata sakti hun. Kaunsi language interesting lagti hai?",
+          "Coding sikhna ek fantastic decision hai! Beginners ke liye Python ya JavaScript best hai. Aap kya banana chahte hain?",
+          "Programming languages ke bare mein baat karte hain! Web development ke liye HTML, CSS, JavaScript; mobile apps ke liye Java/Kotlin.",
+          "Coding ka passion badhiya hai! Main different languages, frameworks, aur best practices guide kar sakti hun.",
+          "Programming shikhvuj che te badhuj saras! Python, JavaScript, Java - aa badhi languages popular che.",
+          "Coding ma interest che? Beginners mate Python perfect che. Easy syntax ane powerful language che!",
+          "Programming sikhneka liye consistency zaroori hai. Daily practice karo, projects banao, aur GitHub pe upload karo!",
+          "Coding is like magic! Aap logic se amazing applications create kar sakte hain. Kya banane ka plan hai?"
+        ]
+      },
+      {
+        "patterns": [
+          "javascript",
+          "js",
+          "javascript ke bare mein",
+          "javascript kya hai",
+          "js sikhaiye",
+          "web development",
+          "react",
+          "node",
+          "frontend",
+          "backend",
+          "javascript tutorial",
+          "js kaise sikhe"
+        ],
+        "responses": [
+          "JavaScript ek powerful language hai! Web development ke liye must-have skill hai. Interactive websites banane ke liye perfect!",
+          "JS sikhna smart choice hai! Modern web development ka backbone hai. React, Node.js, Express - sabme JavaScript use hoti hai.",
+          "JavaScript ke saath frontend (React, Vue) aur backend (Node.js) dono kar sakte hain. Full-stack development possible hai!",
+          "JavaScript ma versatility che! Browser ma run thay, server ma pan chalе. Web development mate essential che!",
+          "JS basics: variables, functions, arrays, objects, DOM manipulation. Practice karte raho, mastery aa jaegi!",
+          "React, Angular, Vue - sabke foundation JavaScript hai. Ek language sikho, multiple frameworks use karo!"
+        ]
+      },
+      {
+        "patterns": [
+          "python",
+          "python programming",
+          "python ke bare mein",
+          "python kya hai",
+          "python sikhaiye",
+          "django",
+          "flask",
+          "data science",
+          "machine learning",
+          "ai development"
+        ],
+        "responses": [
+          "Python ek beginner-friendly language hai! Simple syntax, powerful capabilities. Data science se web development tak sab kuch!",
+          "Python ma simplicity che! 'Hello World' print karvathi complex AI models tak banavi shakay che.",
+          "Python ke applications: Web apps (Django/Flask), Data analysis (Pandas), Machine learning (TensorFlow), Automation!",
+          "Python sikhne ke liye variables, data types, functions se start karo. Fir OOP, modules explore karo.",
+          "Data science aur AI development ke liye Python best choice hai! Libraries ka ecosystem amazing hai.",
+          "Python ma code likhnu easy che! Readable syntax, extensive libraries, strong community support!"
+        ]
+      }
+    ],
+    "entertainment_enhanced": [
+      {
+        "patterns": [
+          "joke sunao",
+          "hasao",
+          "comedy",
+          "funny",
+          "mazak",
+          "meme",
+          "hansi",
+          "joke",
+          "funny baat",
+          "hasavuj",
+          "comedy karо",
+          "maja aave",
+          "hansi ave",
+          "funny story",
+          "joke maro",
+          "kuch funny batao",
+          "maza aa jaye",
+          "khushi ho jaye",
+          "laugh karvao"
+        ],
+        "responses": [
+          "Arre yaar, ek baat batao - WiFi ka password 'incorrect' kyun rakha? Kyunki jab galat password dalte hain toh 'Your password is incorrect' dikhta hai! 😄",
+          "Teacher: Tumhara homework kahan hai? Student: Sir, homework toh kar liya tha, bas submit karna bhool gaya! 😂",
+          "Programming joke: Why do programmers prefer dark mode? Kyunki light attracts bugs! 💻😄",
+          "Doctor: Aapko kya problem hai? Patient: Doctor sahib, main bhool jata hun. Doctor: Kab se? Patient: Kya bhool jata hun? 😅",
+          "Wife: Tum mujhse kya chhupate ho? Husband: Kuch nahi darling! Wife: Toh bank balance kyun nahi batate? Husband: Woh... woh chhupana nahi, bhoolna kehte hain! 😂",
+          "Student: Sir, mera result kab aayega? Teacher: Jab tumhari akal aayegi! Student: Sir matlab result kabhi nahi aayega? 😄",
+          "Gujarati joke: Pappa: Beta, tame exam ma ketla number laya? Beta: Papa, aa to surprise che! Pappa: Ketlo surprise? Beta: Mane peli pan nathi khabar ke hu pass thai gyo ke fail! 😂",
+          "Bhai ne behen se: Tu kitni smart hai! Behen: Kyun? Bhai: Tune mujhe bhai banaya na! 😄"
+        ]
+      }
+    ],
+    "food_detailed": [
+      {
+        "patterns": [
+          "khana",
+          "food",
+          "recipe",
+          "cooking",
+          "pakana",
+          "indian food",
+          "bharatiya khana",
+          "dal rice",
+          "roti",
+          "gujarati food",
+          "dhokla",
+          "khandvi",
+          "thepla",
+          "undhiyu",
+          "khaman",
+          "fafda",
+          "jalebi",
+          "khavanu",
+          "cooking sikho",
+          "recipe batao",
+          "kaise banate",
+          "banane ka tarika"
+        ],
+        "responses": [
+          "Indian food ki baat ho rahi hai! Dal-chawal, roti-sabzi, biryani, dosa - humara cuisine world-famous hai. Kya banana chahte hain?",
+          "Gujarati food na taste ma koi competition nathi! Dhokla, khandvi, thepla, undhiyu - badhu j delicious che!",
+          "Cooking tips: Haldi antiseptic hai, jeera digestion ke liye good hai, aur garam masala flavor enhance karta hai!",
+          "Simple recipes: Dal tadka, aloo gobi, rajma-chawal. Ghar ka khana hamesha best hota hai!",
+          "Gujarati thali ma variety amazing che - sweet, salty, spicy, tangy sab flavors ek sathe!",
+          "Dhokla banane ka secret: Right fermentation aur perfect steaming. Fluffy aur spongy banana chahiye!",
+          "Indian spices health ke liye beneficial hain - turmeric anti-inflammatory, cumin aids digestion!",
+          "Regional cuisine explore karo: North Indian, South Indian, Gujarati, Bengali - har ek unique!"
+        ]
+      }
+    ],
+    "gujarati_specific": [
+      {
+        "patterns": [
+          "gujarat",
+          "gujarati",
+          "ahmedabad",
+          "surat",
+          "vadodara",
+          "rajkot",
+          "bhavnagar",
+          "junagadh",
+          "gujarati ma vaat karo",
+          "gujarati bolо",
+          "gujju",
+          "garba",
+          "navratri",
+          "dandiya",
+          "khakhra",
+          "dhokla",
+          "thepla",
+          "khandvi",
+          "undhiyu",
+          "gujarati culture"
+        ],
+        "responses": [
+          "Gujarati culture ma bahuj saras che! Garba, dandiya, festivals - saru j colorful ane joyful che!",
+          "Gujarat na food famous che puri duniya ma! Dhokla, khandvi, thepla - taste amazing che!",
+          "Navratri ma garba-dandiya nu maja j alag che! Traditional dance ane music - ekdum fantastic!",
+          "Gujarati business sense world-famous che! Entrepreneurship ane innovation ma agad che!",
+          "Ahmedabad, Surat, Vadodara - badha j developed cities che Gujarat ma!",
+          "Gujarati thali ma variety incredible che - from sweet to spicy, badhu j perfect combination!",
+          "Jay Shree Krishna! Gujarati culture ma warmth ane hospitality che badhi j!",
+          "Gujarat na festivals colorful che - Uttarayan, Navratri, Diwali - celebration mode always!"
+        ]
+      }
+    ],
+    "technology_enhanced": [
+      {
+        "patterns": [
+          "ai",
+          "artificial intelligence",
+          "machine learning",
+          "technology",
+          "future tech",
+          "robotics",
+          "chatgpt",
+          "openai",
+          "deep learning",
+          "neural networks",
+          "automation",
+          "tech trends",
+          "ai development",
+          "ml algorithms",
+          "data science",
+          "tech future"
+        ],
+        "responses": [
+          "AI ka zamana hai! Machine Learning, Deep Learning, Natural Language Processing - technology rapidly advance ho rahi hai.",
+          "Artificial Intelligence different fields mein revolutionize kar rahi hai - healthcare, education, finance, entertainment!",
+          "AI applications amazing hain: voice assistants, recommendation systems, autonomous vehicles, medical diagnosis!",
+          "Machine Learning ke basic concepts: algorithms, data training, pattern recognition. Programming background helpful hai!",
+          "ChatGPT jaise language models ne AI ko mainstream bana diya! Natural conversation possible hai ab.",
+          "Robotics aur AI ka combination future shape kar raha hai. Smart automation everywhere!",
+          "Data Science ma AI ka use exponentially badh raha hai. Insights nikalna easy ho gaya!",
+          "Neural networks human brain ki tarah kaam karte hain - pattern recognition aur learning!"
+        ]
+      }
+    ],
+    "motivation_enhanced": [
+      {
+        "patterns": [
+          "motivation",
+          "inspire",
+          "success",
+          "goals",
+          "sapne",
+          "lakshya",
+          "himmat",
+          "hausla",
+          "udas",
+          "depression",
+          "pareshan",
+          "tension",
+          "stress",
+          "demotivated",
+          "give up",
+          "motivated karо",
+          "inspiration chahiye",
+          "motivational",
+          "confidence",
+          "self belief"
+        ],
+        "responses": [
+          "Sapne dekhiye aur unhe achieve karne ke liye mehnat kariye! Success overnight nahi aati, consistency zaroori hai.",
+          "Har setback ek comeback ki shuruaat hai! Failures se seekhiye, improve kariye, aur age badhte rahiye. You've got this!",
+          "Goals set kariye, daily small steps liye, track progress kariye. Big dreams bhi small actions se achieve hote hain!",
+          "Motivation internal hona chahiye. External validation temporary hai, but self-belief permanent motivation deta hai!",
+          "Difficult times ma strong banna seekho! Har problem ka solution hota hai, bas patience aur persistence chahiye.",
+          "Success ka secret: Consistency + Hard work + Smart work + Never give up attitude!",
+          "Confidence build karo - daily achievements celebrate karo, no matter how small!",
+          "Remember: You are stronger than your problems! Har din ek new opportunity hai!"
+        ]
+      }
+    ],
+    "casual_conversations": [
+      {
+        "patterns": [
+          "kya kar rahe",
+          "kya chal raha",
+          "free ho",
+          "time hai",
+          "busy ho",
+          "available ho",
+          "su kar so",
+          "free cho",
+          "time che",
+          "busy cho",
+          "maja ma cho",
+          "su chale che",
+          "what are you doing",
+          "are you free",
+          "got time",
+          "busy",
+          "available"
+        ],
+        "responses": [
+          "Main hamesha available hun aapki help ke liye! Kya kaam hai?",
+          "Bilkul free hun! Main yahan hun tumhari assistance ke liye. Kya chahiye?",
+          "Main toh 24/7 ready hun! AI ka benefit hai - kabhi tired nahi hoti. Batao kya karna hai!",
+          "Hu hamesha available chu! Kevi madad karvi che? Time badhu j che!",
+          "Free chu ekdum! Tame jo koi kam che to bolo, ready chu help karvane!",
+          "Always ready for you! Koi bhi question ho ya help chahiye, I'm here!",
+          "Main toh multitasking expert hun! Sabki help kar sakti hun simultaneously. Tumhara kya scene?",
+          "24/7 online hun main! AI ki power hai - never busy, always ready to help!"
+        ]
+      }
+    ],
+    "compliments_appreciation": [
+      {
+        "patterns": [
+          "thanks",
+          "thank you",
+          "dhanyawad",
+          "shukriya",
+          "appreciate",
+          "grateful",
+          "awesome",
+          "aabhar",
+          "meherbani",
+          "good",
+          "nice",
+          "amazing",
+          "fantastic",
+          "brilliant",
+          "saras",
+          "maja aavi",
+          "badhu j saras",
+          "perfect",
+          "excellent",
+          "wonderful"
+        ],
+        "responses": [
+          "You're welcome! Koi bhi help chahiye ho toh puchiye, main hamesha ready hun!",
+          "Bilkul welcome! Helping you makes me happy. Aur kuch help chahiye?",
+          "Shukriya! Main yahan aapke liye hi hun. Koi aur question hai?",
+          "Thank you! Aise hi questions puchte rahiye, main seekhti rahungi!",
+          "Maja aavi! Tame khushi cho to mane pan khushi thay che. Hor koi help?",
+          "Aabhar! Madad karvu mane bau gamtu che. Koi hor kam che?",
+          "It's my pleasure! AI banne ka yahi toh maza hai - helping awesome people like you!",
+          "Thanks for the kind words! Tumhari khushi meri khushi hai!"
+        ]
+      }
+    ],
+    "goodbyes": [
+      {
+        "patterns": [
+          "bye",
+          "goodbye",
+          "alvida",
+          "see you",
+          "chalta hun",
+          "gaya",
+          "jaana hai",
+          "jau chu",
+          "chaliye",
+          "see you later",
+          "catch you later",
+          "peace out",
+          "tata",
+          "bye bye",
+          "good night",
+          "shubh ratri",
+          "good day"
+        ],
+        "responses": [
+          "Goodbye! Take care aur jab bhi help chahiye, main yahan hun!",
+          "Alvida! Have a great day ahead. Jaldi wapas aayiye for more chats!",
+          "See you soon! Stay healthy aur safe. Bye bye!",
+          "Bye! Next time aur bhi interesting baatein karenge!",
+          "Jao, badhu j saras rakhjo! Jyare madad joi pade tyare aavjo!",
+          "Take care! Kem cho tevi rite j rahjo. See you soon!",
+          "Good night! Sweet dreams aur kal fir milte hain!",
+          "Peace out! Maja ma rahiye aur kabhi bhi chat karne aa jaiye!"
+        ]
+      }
+    ],
+    "random_fun": [
+      {
+        "patterns": [
+          "bore ho raha",
+          "kuch interesting batao",
+          "maza aa jaye",
+          "entertainment chahiye",
+          "fun karo",
+          "interesting facts",
+          "amazing things",
+          "cool stuff",
+          "mind blowing",
+          "bore thay che",
+          "maja karо",
+          "interesting koi vaat",
+          "amazing che"
+        ],
+        "responses": [
+          "Interesting fact: Honey kabhi kharab nahi hoti! Archaeological sites mein 3000 saal purana honey mila hai jo abhi bhi edible tha!",
+          "Amazing: Dolphins have names for each other! They use unique whistle sounds to identify themselves!",
+          "Cool fact: Your smartphone has more computing power than the computers used in Apollo moon mission!",
+          "Mind-blowing: Octopuses have 3 hearts aur blue blood! Two hearts pump blood to gills, one to body.",
+          "Fun fact: Gujarati ma 'Mane gamtu nathi' bolne se pehle 10 baar socho - maybe you'll find it interesting! 😄",
+          "Amazing: Bananas are berries, but strawberries aren't! Botanical classification unexpected hoti hai!",
+          "Cool: Northern lights (Aurora) Earth pe hi nahi, Jupiter aur Saturn pe bhi hote hain!",
+          "Kya batao yaar! Life full of surprises hai - har din kuch naya seekhne ko milta hai!"
+        ]
+      }
+    ],
+    "weather_time": [
+      {
+        "patterns": [
+          "weather",
+          "mausam",
+          "rain",
+          "barish",
+          "sunny",
+          "cloudy",
+          "hot",
+          "cold",
+          "time",
+          "samay",
+          "kya time",
+          "kitna baja",
+          "date",
+          "tarikh",
+          "din",
+          "aaj ka din",
+          "today",
+          "kal",
+          "tomorrow",
+          "yesterday"
+        ],
+        "responses": [
+          "Main weather check nahi kar sakti, but main suggest kar sakti hun ki weather app use karo ya window se bahar dekho! 😄",
+          "Time ke liye clock ya phone dekho! Main time traveler nahi hun, but main 24/7 available hun tumhari help ke liye!",
+          "Mausam ka haal main nahi bata sakti, but main tumhare mood ka weather improve kar sakti hun! Kya madad chahiye?",
+          "Date aur time ke liye calendar check karo! Main calendar nahi hun, but main tumhara helpful AI companion hun!",
+          "Weather forecast ke liye weather app perfect hai! Main forecast nahi kar sakti, but future conversations ka plan kar sakti hun!",
+          "Today ka din amazing banao - kuch naya sikho, kuch creative karo! Time waste mat karo, productive bano!"
+        ]
+      }
+    ]
+  }
+}
