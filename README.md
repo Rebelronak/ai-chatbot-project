@@ -2,8 +2,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Rebelronak/priye-ai-chatbot)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5)](https://www.linkedin.com/in/ronakkanani/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](ai-chatbot-project/LICENSE)
 > A sophisticated AI-powered chatbot application built with modern web technologies, featuring real-time conversations, privacy modes, voice recognition, and advanced UI/UX components powered by BlenderBot-400.
 
 ## 🌟 Key Features
